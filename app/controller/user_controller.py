@@ -21,7 +21,9 @@ def create_user():
 
 @user_bp.route("/<id>", methods=["GET"])
 def get_one_user(id):
-    pass
+    return {
+        "message": "not implemented yet"
+    }
 
 @user_bp.route("/<id>", methods=["PUT", "PATCH"])
 def update_user(id):

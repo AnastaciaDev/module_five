@@ -1,7 +1,9 @@
+import os
 from app import create_app
 
-flask_instance = create_app()
+# You can hardcode a profile here, or let FLASK_ENV drive it
+config_name = os.environ.get("FLASK_ENV", "development")
+flask_instance = create_app(config_name)
 
-
-if __name__ == "__main":
+if __name__ == "__main__":
     flask_instance.run()
