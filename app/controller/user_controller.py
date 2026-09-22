@@ -1,4 +1,5 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
+from app.data.store import store
 
 user_bp = Blueprint(
     "user", 
@@ -8,9 +9,7 @@ user_bp = Blueprint(
 
 @user_bp.route("", methods=["GET"])
 def list_user():
-    return {
-        "variable" : "this is what was returned"
-    }, 200
+    return jsonify(store["users"]), 200
 
 @user_bp.route("", methods=["POST"])
 def create_user():

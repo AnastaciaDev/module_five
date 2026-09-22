@@ -10,7 +10,7 @@ def restore_data():
         store[key].clear()
 
 def seed_data():
-    from models import User
+    from app.models.user import User
 
     restore_data()
 
