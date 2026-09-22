@@ -1,0 +1,49 @@
+Micro Framework
+
+client => the web browser
+
+where do we store the data we collect from users
+ => we can in data structures(object or array), though, you won't have persistence
+ => json files = writing(post) and reading(get)
+
+
+ data from the user, we use the client to interact with the user to pick data, after you have collected data
+ we need to post it => http(s) protocol/rules
+
+how do computers communicate
+
+1. The client(the web browser) will generate a request
+    => fetch(endpoint, [data])
+    => the url => can be termed as an endpoint to a resource
+
+2. Server => another cpu on the internet
+    => receives a request, it will process the request and generate a response
+    => while communcating with the Database, the server takes the role of the client
+    => handle routing to expose different part of the program
+
+
+    >login instance
+
+    the client url endpoint is 127.0.0.1:5500/login
+     => the user form in html
+     => methods and function to collect user data and perform auth
+
+3. Database
+    => this will act as a server and handle the response
+    => the Database will have rows and columns of data
+
+req => res cycle
+
+Application Programming Interface(API's)
+a mechanisim through which the program will expose it's resources to be read by others
+
+
+
+Examples of Server with the lang
+1. Node Js => express
+2. Python => macro(Django will be packages with more functionalities(ORM, auth,admin features, middleware, notificaton)) 
+    and micro(flask) handle req, routing
+
+Micro-Framework => Flask
+
+this is light-weight micro frameworks with enhance capabilities to have extension
