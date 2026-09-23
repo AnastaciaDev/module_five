@@ -1,15 +1,20 @@
-
 from dataclasses import dataclass, field, asdict
 from typing import Optional
 import uuid
 
 
 @dataclass
-class User:
-    username: str
+class Member:
+    first_name: str
+    last_name: str
+    username = None
     email: str
+
     employee_id: Optional[str] = None
+    dept_id: Optional[str] = None
     role: str = "employee"
+
+    # deactivation 
     is_active: bool = True
     id: str = field(default_factory=lambda: str(uuid.uuid4()))
 
@@ -18,6 +23,5 @@ class User:
             raise ValueError("role must be admin, manager, or employee")
 
     def to_dict(self) -> dict:
-        # Never expose password_hash in serialization
         d = asdict(self)
         return d

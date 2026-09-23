@@ -1,8 +1,15 @@
 from flask import Flask
 from dotenv import load_dotenv
-from app.controller.user_controller import user_bp
-from app.data.store import seed_data
+from app.controller import create_member_blueprint
+
+from app.repository.member_repo import MemberRepoWithDataStructures
+
+from app.services import MemberService
+
+from app.data.store import seed_data, store
 from config.config import config_by_name
+
+import os
 
 load_dotenv()
 
@@ -21,8 +28,13 @@ def create_app(config_name: str = None) -> Flask:
     if app.config.get("SEED_DATA"):
         seed_data()
 
+    # Wiring thing up
+    member_repository = MemberRepoWithDataStructures(store)
+
+    member_service = MemberService(member_repository)
+
     # register blueprint (routing)
-    app.register_blueprint(user_bp)
+    app.register_blueprint(create_member_blueprint(member_service))
 
     # default health check endpoint
     @app.route("/health")
