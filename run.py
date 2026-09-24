@@ -6,4 +6,4 @@ config_name = os.environ.get("", "")
 flask_instance = create_app(config_name)
 
 if __name__ == "__main__":
-    flask_instance.run()
+    flask_instance.run(use_reloader=False)

@@ -7,8 +7,9 @@ import uuid
 class Member:
     first_name: str
     last_name: str
-    username = None
     email: str
+    username: Optional[str] = None
+
 
     employee_id: Optional[str] = None
     dept_id: Optional[str] = None
